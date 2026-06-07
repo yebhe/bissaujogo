@@ -32,19 +32,26 @@ CSRF_COOKIE_NAME = "csrftoken"
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SECURE = not DEBUG
 
-CSRF_TRUSTED_ORIGINS = env_list(
-    'CSRF_TRUSTED_ORIGINS',
-    'http://127.0.0.1:8000,http://localhost:8000,http://127.0.0.1:5173,http://localhost:5173',
-)
+CSRF_TRUSTED_ORIGINS = [
+    "https://bissaujogo.com",
+    "https://www.bissaujogo.com",
+]
 
-CORS_ALLOWED_ORIGINS = env_list(
-    'CORS_ALLOWED_ORIGINS',
-    'http://localhost:5173,http://127.0.0.1:5173,http://127.0.0.1:8000,http://localhost:8000',
-)
+CORS_ALLOWED_ORIGINS = [
+    "https://bissaujogo.com",
+    "https://www.bissaujogo.com",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 
-ALLOWED_HOSTS = env_list('ALLOWED_HOSTS', '127.0.0.1,localhost')
+ALLOWED_HOSTS = [
+    "bissaujogo.com",
+    "www.bissaujogo.com",
+    "54.37.224.123",
+    "localhost",
+    "127.0.0.1",
+]
 
 CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
 # Application definition
@@ -56,12 +63,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework',
-    'auth_user', 
-    'reservation', 
+    'auth_user',
+    'reservation',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
     'corsheaders.middleware.CorsMiddleware',  # CORS middleware
 ]
 
@@ -99,27 +106,27 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databa
 
-if os.getenv('DB_ENGINE', 'sqlite').lower() == 'postgresql':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_HOST', 'localhost'),
-            'PORT': os.getenv('DB_PORT', '5432'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-# ###
+}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+ ###
 # rest framework settings
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
