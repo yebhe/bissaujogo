@@ -1,0 +1,14 @@
+[Unit]
+Description=BissauJogo Django Gunicorn
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/bissaujogo/backend
+EnvironmentFile=/var/www/bissaujogo/backend/.env
+ExecStart=/var/www/bissaujogo/venv/bin/gunicorn --workers 3 --bind unix:/run/bissaujogo.sock backend.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

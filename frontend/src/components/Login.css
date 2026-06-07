@@ -1,0 +1,187 @@
+/* ── Login.css ── */
+
+.login-page {
+  width: 100%;
+  min-height: calc(100vh - 68px);
+  background: #f0f4f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.login-card {
+  background: white;
+  border-radius: 16px;
+  border: 0.5px solid #dde3ee;
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+}
+
+.login-top {
+  background: #0e3d70;
+  padding: 2.5rem 2.5rem 2.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.login-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(255,255,255,.05) 19px, rgba(255,255,255,.05) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255,255,255,.05) 19px, rgba(255,255,255,.05) 20px);
+  pointer-events: none;
+}
+
+.login-ball {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+.login-ball img { width: 34px; height: 34px; object-fit: contain; }
+
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+.login-title em {
+  font-style: normal;
+  color: #f5c842;
+}
+
+.login-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+.login-body {
+  padding: 2.25rem 2.5rem 2.5rem;
+}
+
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #c53030;
+  margin-bottom: 1.5rem;
+}
+.login-error svg { flex-shrink: 0; width: 16px; height: 16px; }
+
+.login-field {
+  margin-bottom: 1.4rem;
+}
+.login-field label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+.login-field input {
+  width: 100%;
+  padding: 13px 15px;
+  font-size: 16px;
+  border: 1.5px solid #dde3ee;
+  border-radius: 8px;
+  outline: none;
+  color: #1a202c;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.login-field input:focus {
+  border-color: #1a56a0;
+  box-shadow: 0 0 0 3px rgba(26, 86, 160, 0.12);
+}
+.login-field input::placeholder { color: #a0aec0; font-size: 15px; }
+
+.pwd-wrap           { position: relative; }
+.pwd-wrap input     { padding-right: 48px; }
+.pwd-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.pwd-eye:hover { color: #4a5568; }
+.pwd-eye svg   { width: 20px; height: 20px; display: block; }
+
+.login-btn {
+  width: 100%;
+  padding: 14px 16px;
+  background: #0e3d70;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  border: 1.5px solid #0e3d70;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  margin-top: 0.5rem;
+}
+.login-btn:hover:not(:disabled) { background: #1a56a0; border-color: #1a56a0; transform: translateY(-1px); box-shadow: 0 14px 34px rgba(14, 61, 112, 0.18); }
+.login-btn:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
+.login-btn:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(14, 61, 112, 0.16); }
+.login-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+.login-footer {
+  text-align: center;
+  padding: 1.1rem 2.5rem 1.5rem;
+  border-top: 0.5px solid #f0f4f9;
+}
+.login-footer p {
+  font-size: 14px;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.login-footer-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f5c842;
+  flex-shrink: 0;
+}
+
+@keyframes login-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60%  { transform: translateX(-6px); }
+  40%, 80%  { transform: translateX(6px); }
+}
+.login-shake { animation: login-shake 0.35s ease; }
+
+@media (max-width: 480px) {
+  .login-body   { padding: 1.75rem 1.5rem 2rem; }
+  .login-top    { padding: 2rem 1.5rem 1.75rem; }
+  .login-footer { padding: 1rem 1.5rem; }
+}

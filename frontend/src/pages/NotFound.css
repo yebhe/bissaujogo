@@ -1,0 +1,96 @@
+.notfound-page {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(245, 200, 66, .22), transparent 32%),
+    radial-gradient(circle at 80% 10%, rgba(14, 61, 112, .18), transparent 34%),
+    linear-gradient(180deg, #f5f7fb, #eef3f8);
+}
+
+.notfound-card {
+  width: min(680px, 100%);
+  text-align: center;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid rgba(14, 61, 112, .12);
+  border-radius: 28px;
+  padding: 44px 28px;
+  box-shadow: 0 24px 70px rgba(14, 61, 112, .16);
+}
+
+.notfound-logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: #0e3d70;
+  box-shadow: 0 14px 30px rgba(14, 61, 112, .22);
+}
+
+.notfound-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.notfound-code {
+  font-family: Sora, system-ui, sans-serif;
+  font-size: clamp(76px, 14vw, 132px);
+  line-height: .9;
+  font-weight: 900;
+  color: #0e3d70;
+  letter-spacing: -.08em;
+}
+
+.notfound-card h1 {
+  margin: 16px 0 10px;
+  font-family: Sora, system-ui, sans-serif;
+  font-size: clamp(28px, 5vw, 44px);
+  color: #0b1220;
+}
+
+.notfound-card p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #54657d;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.notfound-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.notfound-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(14, 61, 112, .16);
+  background: #fff;
+  color: #0e3d70;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.notfound-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(14, 61, 112, .12);
+}
+
+.notfound-btn--primary {
+  background: #f5c842;
+  border-color: #f5c842;
+  color: #10233a;
+}
